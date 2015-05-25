@@ -1,0 +1,1 @@
+<% lblTest.Text ="Hi everybody, Can you inject c# in this space?";%><html xmlns="http://www.w3.org/1999/xhtml" ><head runat="server"></head><body><h1>Share Space.</h1><br /><asp:Label runat="server" id="lblTest"></asp:Label></body></html>
