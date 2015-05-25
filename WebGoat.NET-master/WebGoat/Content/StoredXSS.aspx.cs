@@ -19,7 +19,8 @@ namespace OWASP.WebGoat.NET
             lblMessage.Visible = false;
             txtEmail.Enabled = true;
             if (!Page.IsPostBack)
-                LoadComments();
+                //LoadComments();
+                FixedLoadComments();
 
         }
 
@@ -27,10 +28,12 @@ namespace OWASP.WebGoat.NET
 		{
             try
             {
-                string error_message = du.AddComment("user_cmt", txtEmail.Text, txtComment.Text);
+                //string error_message = du.AddComment("user_cmt", txtEmail.Text, txtComment.Text);
+                string error_message = du.SecureAddComment("user_cmt", txtEmail.Text, txtComment.Text);
                 txtComment.Text = error_message;
                 lblMessage.Visible = true;
-                LoadComments();
+                //LoadComments();
+                FixedLoadComments();
             }
             catch (Exception ex)
             {

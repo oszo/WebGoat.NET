@@ -12,6 +12,7 @@ namespace OWASP.WebGoat.NET
     public partial class ForgotPassword : System.Web.UI.Page
     {
         private IDbProvider du = Settings.CurrentDbProvider;
+        private static string encr_sec_qu_ans;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,22 +40,24 @@ namespace OWASP.WebGoat.NET
             PanelForgotPasswordStep3.Visible = false;
             
                    
-            HttpCookie cookie = new HttpCookie("encr_sec_qu_ans");
-
-            //encode twice for more security!
-
-            cookie.Value = Encoder.Encode(Encoder.Encode(result[1]));
-
-            Response.Cookies.Add(cookie); 
+            //HttpCookie cookie = new HttpCookie("encr_sec_qu_ans");
+            //
+            ////encode twice for more security!
+            //
+            //cookie.Value = Encoder.Encode(Encoder.Encode(result[1]));
+            //
+            //Response.Cookies.Add(cookie); 
+            encr_sec_qu_ans = Encoder.Encode(Encoder.Encode(result[1]));
         }
 
         protected void ButtonRecoverPassword_Click(object sender, EventArgs e)
         {
             try
             {
-                //get the security question answer from the cookie
-                string encrypted_password = Request.Cookies["encr_sec_qu_ans"].Value.ToString();
-                
+                ////get the security question answer from the cookie
+                //string encrypted_password = Request.Cookies["encr_sec_qu_ans"].Value.ToString();
+                string encrypted_password = encr_sec_qu_ans;
+
                 //decode it (twice for extra security!)
                 string security_answer = Encoder.Decode(Encoder.Decode(encrypted_password));
                 

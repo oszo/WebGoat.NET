@@ -19,19 +19,43 @@ namespace OWASP.WebGoat.NET
         {
             if (PMFileUpload1.HasFile)
             {
-                try
-                {
-                    string filename = Path.GetFileName(PMFileUpload1.FileName);
-                    PMFileUpload1.SaveAs(Server.MapPath("~/WebGoatCoins/uploads/") + filename);
-                    labelPMUpload.Text = "<div class='success' style='text-align:center'>The file " + PMFileUpload1.FileName + " has been saved in to the WebGoatCoins/uploads directory</div>";
+                //try
+                //{
+                //    string filename = Path.GetFileName(PMFileUpload1.FileName);
+                //    PMFileUpload1.SaveAs(Server.MapPath("~/WebGoatCoins/uploads/") + filename);
+                //    labelPMUpload.Text = "<div class='success' style='text-align:center'>The file " + PMFileUpload1.FileName + " has been saved in to the WebGoatCoins/uploads directory</div>";
                     
-                }
-                catch (Exception ex)
+                //}
+                //catch (Exception ex)
+                //{
+                //    labelPMUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: " + ex.Message + "</div>";
+                //}
+                //finally
+                //{
+                //    labelPMUpload.Visible = true;
+                //}
+                string fileExt = System.IO.Path.GetExtension(PMFileUpload1.FileName);
+                if (fileExt == ".pdf" || fileExt == ".xls" || fileExt == ".xlm" || fileExt == ".xlsx" || fileExt == ".xlsm" || fileExt == ".txt")
                 {
-                    labelPMUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: " + ex.Message + "</div>";
+                    try
+                    {
+                        string filename = Path.GetFileName(PMFileUpload1.FileName);
+                        PMFileUpload1.SaveAs(Server.MapPath("~/WebGoatCoins/uploads/") + filename);
+                        labelPMUpload.Text = "<div class='success' style='text-align:center'>The file " + PMFileUpload1.FileName + " has been saved in to the WebGoatCoins/uploads directory</div>";
+
+                    }
+                    catch (Exception ex)
+                    {
+                        labelPMUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: " + ex.Message + "</div>";
+                    }
+                    finally
+                    {
+                        labelPMUpload.Visible = true;
+                    }
                 }
-                finally
+                else 
                 {
+                    labelPMUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: Only PDF, Excel or Plain Text files allowed!(" + fileExt + ")</div>";
                     labelPMUpload.Visible = true;
                 }
             }

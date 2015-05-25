@@ -255,6 +255,14 @@ namespace OWASP.WebGoat.NET.App_Code.DB
             return output;
         }
 
+        public string SecureAddComment(string productCode, string email, string comment)
+        {
+            /*
+                implement Here.
+            */
+            return "";
+        }
+
         public string UpdateCustomerPassword(int customerNumber, string password)
         {
             string sql = "update CustomerLogin set password = '" + Encoder.Encode(password) + "' where customerNumber = " + customerNumber;

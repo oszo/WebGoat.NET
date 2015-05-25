@@ -76,25 +76,25 @@ namespace OWASP.WebGoat.NET
                     }
                 }
             }
-            if ((Request.QueryString["ctl00$BodyContentPlaceholder$emId"] != null) && (Request.QueryString["ctl00$BodyContentPlaceholder$slIncrease"] != null))
-            {
-                int salary_index = 0;
-                if (Request.QueryString["ctl00$BodyContentPlaceholder$emId"] == "001")
-                {
-                    salary_index = 0;
-                }
-                else if (Request.QueryString["ctl00$BodyContentPlaceholder$emId"] == "002")
-                {
-                    salary_index = 1;
-                }
-                else if (Request.QueryString["ctl00$BodyContentPlaceholder$emId"] == "003")
-                {
-                    salary_index = 2;
-                }
-                int oldSalary = datas[salary_index].emSalary;
-                int newSalary = oldSalary + Int32.Parse(Request.QueryString["ctl00$BodyContentPlaceholder$slIncrease"]);
-                datas[salary_index].emSalary = newSalary;
-            }
+            //if ((Request.QueryString["ctl00$BodyContentPlaceholder$emId"] != null) && (Request.QueryString["ctl00$BodyContentPlaceholder$slIncrease"] != null))
+            //{
+            //    int salary_index=0;
+            //    if (Request.QueryString["ctl00$BodyContentPlaceholder$emId"] == "001")
+            //    {
+            //        salary_index = 0;
+            //    }
+            //    else if (Request.QueryString["ctl00$BodyContentPlaceholder$emId"] == "002")
+            //    {
+            //        salary_index = 1;
+            //    }
+            //    else if (Request.QueryString["ctl00$BodyContentPlaceholder$emId"] == "003")
+            //    {
+            //        salary_index = 2;
+            //    }
+            //    int oldSalary = datas[salary_index].emSalary;
+            //    int newSalary = oldSalary + Int32.Parse(Request.QueryString["ctl00$BodyContentPlaceholder$slIncrease"]);
+            //    datas[salary_index].emSalary = newSalary;
+            //}
 
             salaryDetail = "";
             for (int i = 0; i < datas.Length; i++)

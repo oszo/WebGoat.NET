@@ -56,6 +56,11 @@ namespace OWASP.WebGoat.NET.App_Code.DB
             return string.Empty;
         }
 
+        public string SecureAddComment(string productCode, string email, string comment)
+        {
+            return string.Empty;
+        }
+
         public string UpdateCustomerPassword(int customerNumber, string password)
         {
             return string.Empty;

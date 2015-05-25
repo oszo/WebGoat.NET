@@ -29,8 +29,10 @@ namespace OWASP.WebGoat.NET
             //process.Start();
 
             Process process = new Process();
-            process.StartInfo.FileName = "cmd.exe" ;
-            process.StartInfo.Arguments = "/c ping " + txtBoxMsgCmdi.Text;
+            //process.StartInfo.FileName = "cmd.exe";
+            //process.StartInfo.Arguments = "/c ping " + txtBoxMsgCmdi.Text;
+            process.StartInfo.FileName = "ping.exe";
+            process.StartInfo.Arguments = txtBoxMsgCmdi.Text;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.Start();

@@ -25,6 +25,8 @@ namespace OWASP.WebGoat.NET.App_Code.DB
 
         string AddComment(string productCode, string email, string comment);
 
+        string SecureAddComment(string productCode, string email, string comment);
+
         string UpdateCustomerPassword(int customerNumber, string password);
 
         string[] GetSecurityQuestionAndAnswer(string email);

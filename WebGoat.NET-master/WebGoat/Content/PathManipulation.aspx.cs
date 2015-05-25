@@ -31,16 +31,46 @@ namespace OWASP.WebGoat.NET
         	//else
         	//{
         		string filename = Request.QueryString["filename"];
-        		if(filename != null)
-        		{
-                    try
+                //if (filename != null)
+                //{
+                //    try
+                //    {
+                //        ResponseFile(Request, Response, filename, MapPath("~/Downloads/" + filename), 100);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        Console.WriteLine(ex.Message);
+                //        lblStatus.Text = "File not found: " + filename;
+                //    }
+                //}
+                if (filename != null)
+                {
+                    DirectoryInfo check_di = new DirectoryInfo(Server.MapPath("~/Downloads"));
+                    bool check_file = false;
+
+                    foreach (FileInfo fi in check_di.GetFiles())
                     {
-                        ResponseFile(Request, Response, filename, MapPath("~/Downloads/" + filename), 100);
+                        check_file = filename == fi.Name ? true : false;
+                        if (check_file == true)
+                        {
+                            break;
+                        }
                     }
-                    catch (Exception ex)
+                    if (check_file == true)
                     {
-                        Console.WriteLine(ex.Message);
-                        lblStatus.Text = "File not found: " + filename;   
+                        try
+                        {
+                            ResponseFile(Request, Response, filename, MapPath("~/Downloads/" + filename), 100);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                            lblStatus.Text = "File not found: " + filename;
+                        }
+                    }
+                    else
+                    {
+                        lblStatus.Text = "File not found: " + filename;
                     }
                 }
         	//}

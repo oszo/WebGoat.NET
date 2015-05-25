@@ -18,25 +18,25 @@
         </siteMapNode>
         <siteMapNode url="~/Content/InjectionAttacks.aspx" title="Injection Attacks" description="Injection">
             <siteMapNode url="~/Content/SQLInjectionDiscovery.aspx" title="SQL Error Messages" description="SQL Errors" />
-            <siteMapNode url="~/Content/SQLInjection.aspx" title="Exploiting SQL Injection" description="SQL Injection" />
-            <siteMapNode url="~/Content/CommandInjection.aspx" title="Command Injection" description="Command Injection" />
-            <siteMapNode url="~/Content/CodeInjection.aspx" title="Code Injection" description="Code Injection" />
-            <siteMapNode url="~/Content/PathManipulation.aspx" title="File Download Path Manipulation" description="Download File Path Manipulation" />
-            <siteMapNode url="~/Content/UploadPathManipulation.aspx" title="File Upload Path Manipulation" description="Upload File Path Manipulation" />
-            <siteMapNode url="~/Content/UploadJs.aspx" title="File Upload by JS" description="Upload File by JS" />
-            <siteMapNode url="~/Content/UploadAcceptAttrib.aspx" title="File Upload Attrib Filter" description="Upload File Attrib Filter" />
+            <siteMapNode url="~/Content/SQLInjection.aspx" title="Exploiting SQL Injection (Patch)" description="SQL Injection (Patch)" />
+            <siteMapNode url="~/Content/CommandInjection.aspx" title="Command Injection (Patch)" description="Command Injection (Patch)" />
+            <siteMapNode url="~/Content/CodeInjection.aspx" title="Code Injection (Patch)" description="Code Injection (Patch)" />
+            <siteMapNode url="~/Content/PathManipulation.aspx" title="File Download Path Manipulation (Patch)" description="Download File Path Manipulation (Patch)" />
+            <siteMapNode url="~/Content/UploadPathManipulation.aspx" title="File Upload Path Manipulation (Patch)" description="Upload File Path Manipulation (Patch)" />
+            <siteMapNode url="~/Content/UploadJs.aspx" title="File Upload by JS (Patch)" description="Upload File by JS (Patch)" />
+            <siteMapNode url="~/Content/UploadAcceptAttrib.aspx" title="File Upload Attrib Filter (Patch)" description="Upload File Attrib Filter (Patch)" />
         </siteMapNode>
         <siteMapNode url="~/Content/XSS.aspx" title="Cross Site Scripting (XSS)" description="XSS">
-            <siteMapNode url="~/Content/StoredXSS.aspx" title="Stored XSS" description="Stored XSS" />
-            <siteMapNode url="~/Content/ReflectedXSS.aspx" title="Reflected XSS" description="Reflected XSS" />
+            <siteMapNode url="~/Content/StoredXSS.aspx" title="Stored XSS (Patch)" description="Stored XSS (Patch)" />
+            <siteMapNode url="~/Content/ReflectedXSS.aspx" title="Reflected XSS (Patch)" description="Reflected XSS (Patch)" />
         </siteMapNode>
         <siteMapNode url="~/Content/Authentication.aspx" title="Authentication Issues" description="">
-            <siteMapNode url="~/Content/ForgotPassword.aspx" title="Insecure Forgot Password" description="Insecure Forgot Password" />
+            <siteMapNode url="~/Content/ForgotPassword.aspx" title="Insecure Forgot Password (Patch)" description="Insecure Forgot Password (Patch)" />
             <siteMapNode url="~/Content/HeaderInjection.aspx" title="Header Injection" description="Header Injection" />
-            <siteMapNode url="~/Content/WeakAuthenCookie.aspx" title="Weak Authen Cookie" description="Weak Authen Cookie" />
+            <siteMapNode url="~/Content/WeakAuthenCookie.aspx" title="Weak Authen Cookie (Patch)" description="Weak Authen Cookie (Patch)" />
         </siteMapNode>
         <siteMapNode url="~/Content/CSRF.aspx" title="Cross Site Request Forgery (CSRF)" description="">
-          <siteMapNode url="~/Content/CSRFDemo.aspx" title="Form Vulnerable to CSRF" description="Form Vulnerable to CSRF"/>
+          <siteMapNode url="~/Content/CSRFDemo.aspx" title="Form Vulnerable to CSRF (Patch)" description="Form Vulnerable to CSRF (Patch)"/>
         </siteMapNode>
         <!--siteMapNode url="~/Content/Debug.aspx" title="Testing and Debugging" description="Testing and Debugging">
             <siteMapNode url="~/Content/ExploitDebug.aspx" title="Exploiting Debug Page" description="Exploiting Debug Page" />

@@ -31,7 +31,8 @@ namespace OWASP.WebGoat.NET
             }
             catch (Exception ex)
             {
-                lblOutput.Text = ex.Message;
+                //lblOutput.Text = ex.Message; //patch
+                lblOutput.Text = "Customer Number does not exist";
             }
 		}
 	}

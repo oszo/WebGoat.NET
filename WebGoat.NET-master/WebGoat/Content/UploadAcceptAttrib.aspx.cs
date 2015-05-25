@@ -22,18 +22,41 @@ namespace OWASP.WebGoat.NET.Content
             //check file was submitted
             if (file != null && file.ContentLength > 0)
             {
-                try
+                //try
+                //{
+                //    string filename = Path.GetFileName(file.FileName);
+                //    file.SaveAs(Server.MapPath("~/WebGoatCoins/uploads/") + filename);
+                //    labelUpload.Text = "<div class='success' style='text-align:center'>The file " + file.FileName + " has been saved in to the WebGoatCoins/uploads directory</div>";
+                //}
+                //catch (Exception ex)
+                //{
+                //    labelUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: " + ex.Message + "</div>";
+                //}
+                //finally
+                //{
+                //    labelUpload.Visible = true;
+                //}
+                string fileExt = System.IO.Path.GetExtension(file.FileName);
+                if (fileExt == ".gif" || fileExt == ".jpg")
                 {
-                    string filename = Path.GetFileName(file.FileName);
-                    file.SaveAs(Server.MapPath("~/WebGoatCoins/uploads/") + filename);
-                    labelUpload.Text = "<div class='success' style='text-align:center'>The file " + file.FileName + " has been saved in to the WebGoatCoins/uploads directory</div>";
+                    try
+                    {
+                        string filename = Path.GetFileName(file.FileName);
+                        file.SaveAs(Server.MapPath("~/WebGoatCoins/uploads/") + filename);
+                        labelUpload.Text = "<div class='success' style='text-align:center'>The file " + file.FileName + " has been saved in to the WebGoatCoins/uploads directory</div>";
+                    }
+                    catch (Exception ex)
+                    {
+                        labelUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: " + ex.Message + "</div>";
+                    }
+                    finally
+                    {
+                        labelUpload.Visible = true;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    labelUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: " + ex.Message + "</div>";
-                }
-                finally
-                {
+                    labelUpload.Text = "<div class='error' style='text-align:center'>Upload Failed: Only GIF and JPG files allowed!</div>";
                     labelUpload.Visible = true;
                 }
             }

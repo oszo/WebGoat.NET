@@ -17,7 +17,8 @@ namespace OWASP.WebGoat.NET
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request["city"] != null)
-                LoadCity(Request["city"]);
+                //LoadCity(Request["city"]);
+                FixedLoadCity(Request["city"]);
         }
 
 		void LoadCity (String city)

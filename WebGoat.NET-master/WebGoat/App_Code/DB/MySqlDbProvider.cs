@@ -292,6 +292,35 @@ namespace OWASP.WebGoat.NET.App_Code.DB
             return output;
         }
 
+        public string SecureAddComment(string productCode, string email, string comment)
+        {
+            //string sql = "insert into Comments(productCode, email, comment) values ('" + productCode + "','" + email + "','" + comment + "');";
+            string sql = "insert into Comments(productCode, email, comment) values (@productCode,@email,@comment);";
+            string output = null;
+
+            try
+            {
+
+                using (MySqlConnection connection = new MySqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand(sql, connection);
+                    command.Parameters.AddWithValue("@productCode", productCode);
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@comment", comment);
+                    command.Prepare();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error adding comment", ex);
+                output = ex.Message;
+            }
+
+            return output;
+        }
+
         public string UpdateCustomerPassword(int customerNumber, string password)
         {
             string sql = "update CustomerLogin set password = '" + Encoder.Encode(password) + "' where customerNumber = " + customerNumber;
@@ -514,8 +543,9 @@ namespace OWASP.WebGoat.NET.App_Code.DB
 
         public DataSet GetEmailByName(string name)
         {
-            string sql = "select firstName, lastName, email from Employees where firstName like '" + name + "%' or lastName like '" + name + "%'";
-            
+
+            //string sql = "select firstName, lastName, email from Employees where firstName like '" + name + "%' or lastName like '" + name + "%'";
+            string sql = "select firstName, lastName, email from Employees where firstName like '" + MySqlHelper.EscapeString(name) + "%' or lastName like '" + MySqlHelper.EscapeString(name) + "%'";
             
             using (MySqlConnection connection = new MySqlConnection(_connectionString))
             {
